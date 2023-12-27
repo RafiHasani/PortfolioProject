@@ -2,9 +2,9 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:portfolioproject/widgets/contactus_card_widget.dart';
 
 import '../../../controllers/home_screen_controller.dart';
-import '../../mobile_view/mobile_container.dart';
 
 class ContactDetailsPageView extends StatelessWidget {
   final HomeController homeController;
