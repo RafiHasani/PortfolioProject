@@ -53,45 +53,43 @@ class HomePageWeb extends StatelessWidget {
                 ),
               ),
         body: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 42.w),
-          child: Expanded(
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                SmoothPageIndicator(
+          padding: EdgeInsets.symmetric(horizontal: 32.w),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              SmoothPageIndicator(
+                controller: controller,
+                count: 5,
+                axisDirection: Axis.vertical,
+                effect: const ExpandingDotsEffect(),
+              ),
+              16.horizontalSpace,
+              SizedBox(
+                width: 0.7.sw,
+                child: PageView(
+                  onPageChanged: (index) {
+                    homeController.setPageIndex(index);
+                  },
                   controller: controller,
-                  count: 5,
-                  axisDirection: Axis.vertical,
-                  effect: const ExpandingDotsEffect(),
+                  scrollDirection: Axis.vertical,
+                  children: [
+                    HomePageView(
+                      homeController: homeController,
+                    ),
+                    AboutMePageView(homeController: homeController),
+                    const MySkillPageView(),
+                    ProfessionalExperiencePageView(
+                      homeController: homeController,
+                    ),
+                    ContactDetailsPageView(
+                      homeController: homeController,
+                    ),
+                  ],
                 ),
-                16.horizontalSpace,
-                SizedBox(
-                  width: 0.7.sw,
-                  child: PageView(
-                    onPageChanged: (index) {
-                      homeController.setPageIndex(index);
-                    },
-                    controller: controller,
-                    scrollDirection: Axis.vertical,
-                    children: [
-                      HomePageView(
-                        homeController: homeController,
-                      ),
-                      AboutMePageView(homeController: homeController),
-                      const MySkillPageView(),
-                      ProfessionalExperiencePageView(
-                        homeController: homeController,
-                      ),
-                      ContactDetailsPageView(
-                        homeController: homeController,
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
         floatingActionButton: homeController.pageIndex > 2
