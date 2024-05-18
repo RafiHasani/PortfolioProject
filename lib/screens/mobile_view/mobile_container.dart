@@ -15,7 +15,7 @@ class HomePageMobile extends StatelessWidget {
   HomePageMobile({super.key});
 
   final PageController controller =
-      PageController(viewportFraction: 0.90, initialPage: 3);
+      PageController(viewportFraction: 0.90, initialPage: 0);
 
   @override
   Widget build(BuildContext context) {
