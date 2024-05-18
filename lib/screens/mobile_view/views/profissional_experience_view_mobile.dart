@@ -1,8 +1,9 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:portfolioproject/constants/app_config.dart';
-import 'package:portfolioproject/widgets/profissional_experience_cards_widget.dart';
+import 'package:portfolioproject/widgets/profissional_experience_card_list_widget.dart';
 
 import '../../../controllers/home_screen_controller.dart';
 
@@ -38,11 +39,11 @@ class ProfissionalExperiencePageView extends StatelessWidget {
         32.verticalSpace,
         Expanded(
           child: ListView(
-            scrollDirection: Axis.horizontal,
+            scrollDirection: Axis.vertical,
             semanticChildCount: 3,
             shrinkWrap: true,
             children: [
-              MyProfissionalExperienceCard(
+              MyProfissionalExperienceCardMobileView(
                 icon: 'assets/images/triftplan.jpg',
                 title: 'TriftPlan',
                 subTitle:
@@ -52,8 +53,8 @@ class ProfissionalExperiencePageView extends StatelessWidget {
                       .launch('https://www.veroke.com/portfolio/thriftplan/');
                 },
               ),
-              8.horizontalSpace,
-              MyProfissionalExperienceCard(
+              4.verticalSpace,
+              MyProfissionalExperienceCardMobileView(
                 icon: 'assets/images/artstation.jpg',
                 title: 'Art Station',
                 subTitle:
@@ -63,8 +64,30 @@ class ProfissionalExperiencePageView extends StatelessWidget {
                       .launch('https://www.veroke.com/portfolio/art-station/');
                 },
               ),
-              8.horizontalSpace,
-              MyProfissionalExperienceCard(
+              4.verticalSpace,
+              MyProfissionalExperienceCardMobileView(
+                icons: CarouselSlider(
+                    items: [
+                      Image.asset('assets/images/amex.jpg'),
+                      Image.asset('assets/images/amex1.jpg'),
+                      Image.asset('assets/images/amex2.jpg'),
+                    ],
+                    options: CarouselOptions(
+                      height: 300,
+                      aspectRatio: 1 / 2,
+                      viewportFraction: 0.8,
+                      initialPage: 0,
+                      enableInfiniteScroll: true,
+                      reverse: false,
+                      autoPlay: true,
+                      autoPlayInterval: const Duration(seconds: 3),
+                      autoPlayAnimationDuration:
+                          const Duration(milliseconds: 800),
+                      autoPlayCurve: Curves.fastOutSlowIn,
+                      enlargeCenterPage: true,
+                      enlargeFactor: 0.3,
+                      scrollDirection: Axis.horizontal,
+                    )),
                 icon: 'assets/images/amex.jpg',
                 title: 'American Express Saudi',
                 subTitle:

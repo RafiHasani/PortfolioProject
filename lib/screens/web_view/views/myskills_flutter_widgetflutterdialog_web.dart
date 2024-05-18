@@ -4,9 +4,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../constants/app_config.dart';
 import '../../../controllers/home_screen_controller.dart';
 
-class ProfissionalExperienceDialogFlutterWidget extends StatelessWidget {
+class MySkillsDialogFlutterWidget extends StatelessWidget {
   final HomeController homeController;
-  const ProfissionalExperienceDialogFlutterWidget({
+  const MySkillsDialogFlutterWidget({
     super.key,
     required this.homeController,
   });
@@ -29,7 +29,7 @@ class ProfissionalExperienceDialogFlutterWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                'Veroke Technology',
+                'Veroke',
                 style: TextStyle(
                   color: Colors.black,
                   fontWeight: FontWeight.bold,

@@ -5,8 +5,8 @@ import 'package:portfolioproject/controllers/home_screen_controller.dart';
 import 'package:portfolioproject/screens/mobile_view/views/aboutme_view_mobile.dart';
 import 'package:portfolioproject/screens/mobile_view/views/contuctus_view_mobile.dart';
 import 'package:portfolioproject/screens/mobile_view/views/homepage_view_mobile.dart';
-import 'package:portfolioproject/screens/mobile_view/views/myskill_view_mobile.dart';
-import 'package:portfolioproject/screens/mobile_view/views/profissionalexperience_view_mobile.dart';
+import 'package:portfolioproject/screens/mobile_view/views/profissional_experience_view_mobile.dart';
+import 'package:portfolioproject/screens/mobile_view/views/myskills_view_mobile.dart';
 import 'package:portfolioproject/widgets/bottombar.dart';
 import 'package:portfolioproject/widgets/centeredview.dart';
 import 'package:portfolioproject/widgets/navbar_mobile.dart';
@@ -14,7 +14,8 @@ import 'package:portfolioproject/widgets/navbar_mobile.dart';
 class HomePageMobile extends StatelessWidget {
   HomePageMobile({super.key});
 
-  final PageController controller = PageController(viewportFraction: 0.90);
+  final PageController controller =
+      PageController(viewportFraction: 0.90, initialPage: 3);
 
   @override
   Widget build(BuildContext context) {
@@ -189,10 +190,11 @@ class HomePageMobile extends StatelessWidget {
                   children: [
                     HomePageMobileView(homeController: homeController),
                     AboutMeMobilePageView(homeController: homeController),
-                    const MySkillMobilePageView(),
-                    ProfessionalExperienceMobilePageView(
+                    MySkillsMobilePageView(
                       homeController: homeController,
                     ),
+                    ProfissionalExperiencePageView(
+                        homeController: homeController),
                     ContactDetailsMobilePageView(
                       homeController: homeController,
                     ),

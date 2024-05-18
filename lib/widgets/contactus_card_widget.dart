@@ -24,8 +24,8 @@ class ContactTalkCardWidget extends StatelessWidget {
       clipBehavior: Clip.antiAlias,
       child: Container(
         clipBehavior: Clip.antiAlias,
-        height: 0.22.sh,
-        width: 0.22.sw,
+        height: 0.18.sh,
+        width: 0.18.sw,
         padding: EdgeInsets.all(8.r),
         decoration: BoxDecoration(
           border: Border.all(
@@ -37,7 +37,6 @@ class ContactTalkCardWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             icon,
-            8.verticalSpace,
             Text(
               title,
               style: TextStyle(
@@ -46,7 +45,6 @@ class ContactTalkCardWidget extends StatelessWidget {
                 color: Colors.black,
               ),
             ),
-            8.verticalSpace,
             Text(
               subtitle,
               style: TextStyle(
@@ -55,7 +53,7 @@ class ContactTalkCardWidget extends StatelessWidget {
                 color: Colors.black45,
               ),
             ),
-            12.verticalSpace,
+            8.verticalSpace,
             if (showAction)
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,

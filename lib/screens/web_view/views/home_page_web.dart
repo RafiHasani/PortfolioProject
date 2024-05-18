@@ -181,7 +181,7 @@ class HomePageView extends StatelessWidget {
               ElevatedButton(
                 onPressed: () {
                   AppConfig().launch(
-                      'https://drive.google.com/file/d/1YkqLrrI5BPh0cx-pX3hvYxnglRi22Mqi/view');
+                      'https://drive.google.com/file/d/11DbKb4BxL9wlqUoel5l8Mw3h-4eDB1NG/view?usp=sharing');
                 },
                 child: Row(
                   mainAxisSize: MainAxisSize.min,

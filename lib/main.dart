@@ -65,7 +65,7 @@ class MainApp extends StatelessWidget {
                 ),
               ),
             ),
-            scaffoldBackgroundColor: const Color.fromARGB(200, 255, 255, 255),
+            scaffoldBackgroundColor: Colors.grey.shade300,
             primaryColor: AppConfig.color.primary,
             primaryColorLight: Colors.black,
             textTheme: Theme.of(context).textTheme.apply(

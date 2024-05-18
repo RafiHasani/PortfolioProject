@@ -68,8 +68,8 @@ class ContactDetailsPageView extends StatelessWidget {
                   ContactTalkCardWidget(
                     icon: Image.asset(
                       'assets/images/whatsapp.png',
-                      height: 18.h,
-                      width: 18.h,
+                      height: 18.r,
+                      width: 18.r,
                       color: Colors.orange.shade500,
                     ),
                     title: 'WhatsApp',

@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class ProfessionalExperienceCard extends StatelessWidget {
+class MyProfissionalExperienceCardMobileView extends StatelessWidget {
   final String icon;
   final String title;
   final String subTitle;
   final Function() viewMore;
-  const ProfessionalExperienceCard({
+  final Widget? icons;
+  const MyProfissionalExperienceCardMobileView({
     super.key,
     required this.icon,
     required this.title,
     required this.subTitle,
     required this.viewMore,
+    this.icons,
   });
 
   @override
@@ -22,8 +24,8 @@ class ProfessionalExperienceCard extends StatelessWidget {
       clipBehavior: Clip.antiAlias,
       child: Container(
         clipBehavior: Clip.antiAlias,
-        height: 0.32.sh,
-        width: 0.22.sw,
+        height: 0.56.sh,
+        width: 0.28.sw,
         padding: EdgeInsets.all(6.r),
         decoration: BoxDecoration(
           border: Border.all(
@@ -34,26 +36,32 @@ class ProfessionalExperienceCard extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset(
-              icon,
-              color: Colors.orange.shade400,
-            ),
-            8.verticalSpace,
+            icons != null
+                ? icons!
+                : Image.asset(
+                    icon,
+                  ),
+            14.verticalSpace,
             Text(
               title,
               style: TextStyle(
-                fontSize: 6.sp,
+                fontSize: 12.sp,
                 fontWeight: FontWeight.bold,
                 color: Colors.black,
               ),
             ),
             8.verticalSpace,
-            Text(
-              subTitle,
-              style: TextStyle(
-                fontSize: 5.sp,
-                fontWeight: FontWeight.w600,
-                color: Colors.black45,
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                subTitle,
+                maxLines: 2,
+                style: TextStyle(
+                  fontSize: 6.sp,
+                  fontWeight: FontWeight.w300,
+                  color: Colors.black45,
+                  overflow: TextOverflow.ellipsis,
+                ),
               ),
             ),
             12.verticalSpace,
@@ -69,7 +77,7 @@ class ProfessionalExperienceCard extends StatelessWidget {
                     Text(
                       "View More",
                       style: TextStyle(
-                        fontSize: 5.sp,
+                        fontSize: 8.sp,
                         fontWeight: FontWeight.bold,
                         color: Colors.black45,
                       ),
@@ -77,7 +85,7 @@ class ProfessionalExperienceCard extends StatelessWidget {
                     2.horizontalSpace,
                     Icon(
                       Icons.arrow_forward_rounded,
-                      size: 10.r,
+                      size: 12.r,
                     )
                   ],
                 ))

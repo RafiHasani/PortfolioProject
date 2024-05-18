@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:portfolioproject/controllers/home_screen_controller.dart';
-import 'package:portfolioproject/screens/web_view/views/profissional_experience_flutterdialog_web.dart';
-import 'package:portfolioproject/screens/web_view/views/profissional_experience_swiftdialog_web.dart';
+import 'package:portfolioproject/screens/web_view/views/myskills_flutter_widgetflutterdialog_web.dart';
+import 'package:portfolioproject/screens/web_view/views/myskill_dialog_swiftdialog_web.dart';
 import 'package:portfolioproject/widgets/profissionalexperience_card_view_mobile.dart';
 
-class ProfessionalExperienceMobilePageView extends StatelessWidget {
+class MySkillsMobilePageView extends StatelessWidget {
   final HomeController homeController;
-  const ProfessionalExperienceMobilePageView({
+  const MySkillsMobilePageView({
     super.key,
     required this.homeController,
   });
@@ -41,11 +41,11 @@ class ProfessionalExperienceMobilePageView extends StatelessWidget {
             ProfessionalExperienceCardMobile(
               icon: 'assets/images/swift.png',
               title: 'Swift (iOS)',
-              subTitle: 'Andpercent',
+              subTitle: 'Veroke',
               homeController: homeController,
               viewMore: () {
                 Get.dialog(
-                  ProfissionalExperienceDialogWidgetSwift(
+                  MySkillsDialogWidgetSwift(
                     homeController: homeController,
                   ),
                 );
@@ -59,7 +59,7 @@ class ProfessionalExperienceMobilePageView extends StatelessWidget {
               homeController: homeController,
               viewMore: () {
                 Get.dialog(
-                  ProfissionalExperienceDialogFlutterWidget(
+                  MySkillsDialogFlutterWidget(
                     homeController: homeController,
                   ),
                 );

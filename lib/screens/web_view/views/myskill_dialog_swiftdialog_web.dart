@@ -4,9 +4,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../constants/app_config.dart';
 import '../../../controllers/home_screen_controller.dart';
 
-class ProfissionalExperienceDialogWidgetSwift extends StatelessWidget {
+class MySkillsDialogWidgetSwift extends StatelessWidget {
   final HomeController homeController;
-  const ProfissionalExperienceDialogWidgetSwift({
+  const MySkillsDialogWidgetSwift({
     super.key,
     required this.homeController,
   });
@@ -16,7 +16,7 @@ class ProfissionalExperienceDialogWidgetSwift extends StatelessWidget {
     return Center(
       child: Container(
         height: 0.5.sh,
-        width: AppConfig().getDeviceScreenType(context) == 0 ? 0.5.sw : 0.8.sw,
+        width: AppConfig().getDeviceScreenType(context) == 0 ? 0.7.sw : 0.8.sw,
         padding: EdgeInsets.all(16.r),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(8.r),
@@ -29,17 +29,17 @@ class ProfissionalExperienceDialogWidgetSwift extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                'Anderpercent Technology',
+                'Veroke',
                 style: TextStyle(
                   color: Colors.black,
                   fontWeight: FontWeight.bold,
-                  fontSize: 4.sp,
+                  fontSize: 6.sp,
                   decoration: TextDecoration.none,
                 ),
               ),
               24.verticalSpace,
               Text(
-                '''I started working as junior software deverloper in March 2021 with Andpercent technology. I was developing mobile application for iOS platform. ''',
+                '''I started working as junior software deverloper in March 2021 with Veroke. I was developing mobile application for iOS platform. ''',
                 style: TextStyle(
                   color: Colors.black54,
                   fontSize: 4.sp,

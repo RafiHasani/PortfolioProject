@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:portfolioproject/screens/web_view/views/my_skills_page_web.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../../controllers/home_screen_controller.dart';
@@ -10,12 +11,12 @@ import 'views/aboutme_page_web.dart';
 import 'views/contactus_page_web.dart';
 import 'views/home_page_web.dart';
 import 'views/profissional_experience_page_web.dart';
-import 'views/skills_page_web.dart';
 
 class HomePageWeb extends StatelessWidget {
   HomePageWeb({super.key});
 
-  final PageController controller = PageController(viewportFraction: 0.8);
+  final PageController controller =
+      PageController(viewportFraction: 0.8, initialPage: 0);
 
   @override
   Widget build(BuildContext context) {
@@ -72,6 +73,7 @@ class HomePageWeb extends StatelessWidget {
                   onPageChanged: (index) {
                     homeController.setPageIndex(index);
                   },
+                  physics: const ClampingScrollPhysics(),
                   controller: controller,
                   scrollDirection: Axis.vertical,
                   children: [
@@ -79,8 +81,10 @@ class HomePageWeb extends StatelessWidget {
                       homeController: homeController,
                     ),
                     AboutMePageView(homeController: homeController),
-                    const MySkillPageView(),
-                    ProfessionalExperiencePageView(
+                    MySkillPageView(
+                      homeController: homeController,
+                    ),
+                    ProfissionalExperiencePageView(
                       homeController: homeController,
                     ),
                     ContactDetailsPageView(
