@@ -17,6 +17,7 @@ class AboutMePageView extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisSize: MainAxisSize.min,
       children: [
         Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -86,8 +87,7 @@ class AboutMePageView extends StatelessWidget {
               ],
             ),
             8.horizontalSpace,
-            SingleChildScrollView(
-              child: Column(
+            Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.end,
                 mainAxisSize: MainAxisSize.min,
@@ -176,7 +176,7 @@ class AboutMePageView extends StatelessWidget {
                   ),
                   28.verticalSpace,
                 ],
-              ),
+          
             ),
           ],
         ),

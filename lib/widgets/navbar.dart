@@ -96,7 +96,7 @@ class NavBarWidget extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Switch(
-                        trackColor: MaterialStateProperty.all(Colors.white30),
+                        trackColor: WidgetStateProperty.all(Colors.white30),
                         activeColor: Colors.green.withOpacity(0.4),
                         activeThumbImage:
                             const AssetImage('assets/images/night.png'),

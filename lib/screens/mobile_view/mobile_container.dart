@@ -125,7 +125,7 @@ class HomePageMobile extends StatelessWidget {
                       ? 'DarkMode'
                       : 'LightMode'),
                   trailing: Switch(
-                      trackColor: MaterialStateProperty.all(Colors.black38),
+                      trackColor: WidgetStateProperty.all(Colors.black38),
                       activeColor: Colors.green.withOpacity(0.4),
                       activeThumbImage:
                           const AssetImage('assets/images/night.png'),
@@ -180,7 +180,7 @@ class HomePageMobile extends StatelessWidget {
             children: [
               Expanded(
                 child: PageView(
-                  padEnds: false,
+                  padEnds: true,
                   onPageChanged: (index) {
                     homeController.setPageIndex(index);
                   },
