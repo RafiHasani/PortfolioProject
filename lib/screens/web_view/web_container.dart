@@ -77,19 +77,12 @@ class HomePageWeb extends StatelessWidget {
                   controller: controller,
                   scrollDirection: Axis.vertical,
                   children: [
-                    HomePageView(
-                      homeController: homeController,
-                    ),
+                    HomePageView(homeController: homeController),
                     AboutMePageView(homeController: homeController),
-                    MySkillPageView(
-                      homeController: homeController,
-                    ),
+                    MySkillPageView(homeController: homeController),
                     ProfissionalExperiencePageView(
-                      homeController: homeController,
-                    ),
-                    ContactDetailsPageView(
-                      homeController: homeController,
-                    ),
+                        homeController: homeController),
+                    ContactDetailsPageView(homeController: homeController),
                   ],
                 ),
               ),
@@ -170,9 +163,7 @@ class HomePageWeb extends StatelessWidget {
                 },
                 homeController: homeController,
               )
-            : const SizedBox(
-                height: 1,
-              ),
+            : const SizedBox.shrink(),
       );
     });
   }

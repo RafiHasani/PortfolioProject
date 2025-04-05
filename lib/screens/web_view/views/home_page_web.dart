@@ -13,6 +13,7 @@ class HomePageView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isLight = homeController.themeMode == ThemeMode.light;
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -40,7 +41,7 @@ class HomePageView extends StatelessWidget {
                 IconButton(
                   onPressed: () {
                     AppConfig().launch(
-                        'https://www.linkedin.com/in/mrafi-hasani-2016/');
+                        'https://af.linkedin.com/in/mrafi-hasani-2016?trk=people-guest_people_search-card');
                   },
                   icon: Container(
                     padding: EdgeInsets.all(1.r),
@@ -121,9 +122,7 @@ class HomePageView extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 8.sp,
                         fontWeight: FontWeight.w600,
-                        color: homeController.themeMode == ThemeMode.light
-                            ? Colors.black54
-                            : Colors.white60,
+                        color: isLight ? Colors.black54 : Colors.white60,
                       ),
                     ),
                   ),
@@ -136,9 +135,7 @@ class HomePageView extends StatelessWidget {
                   '''Thank you for visiting my portfolio! I am delighted to present my work as a professional mobile application developer. With a strong passion for creating apps that are intuitive and user-friendly, I have dedicated myself to developing innovative solutions that enhance and simplify everyday life. Through this portfolio, I aim to demonstrate the wide range of mobile applications I have created, each specifically designed to meet the unique needs and preferences of users. I am confident that my applications will captivate your interest.''',
                   style: TextStyle(
                     fontWeight: FontWeight.w200,
-                    color: homeController.themeMode == ThemeMode.light
-                        ? Colors.black45
-                        : Colors.white60,
+                    color: isLight ? Colors.black45 : Colors.white60,
                     height: 1.2.h,
                   ),
                   overflow: TextOverflow.visible,
@@ -152,9 +149,7 @@ class HomePageView extends StatelessWidget {
                 children: [
                   Icon(
                     Icons.share_location_sharp,
-                    color: homeController.themeMode == ThemeMode.light
-                        ? Colors.black45
-                        : Colors.white38,
+                    color: isLight ? Colors.black45 : Colors.white38,
                   ),
                   4.horizontalSpace,
                   Text(
@@ -169,9 +164,7 @@ class HomePageView extends StatelessWidget {
                     " Afghanistan.",
                     style: TextStyle(
                       fontSize: 6.sp,
-                      color: homeController.themeMode == ThemeMode.light
-                          ? Colors.black45
-                          : Colors.white38,
+                      color: isLight ? Colors.black45 : Colors.white38,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -181,7 +174,7 @@ class HomePageView extends StatelessWidget {
               ElevatedButton(
                 onPressed: () {
                   AppConfig().launch(
-                      'https://drive.google.com/file/d/11DbKb4BxL9wlqUoel5l8Mw3h-4eDB1NG/view?usp=sharing');
+                      'https://drive.google.com/file/d/1Yor8v073f4vED5oCmHHS3Ltz7regxQRG/view?usp=sharing');
                 },
                 child: Row(
                   mainAxisSize: MainAxisSize.min,

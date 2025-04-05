@@ -20,6 +20,7 @@ class HomePageMobile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<HomeController>(builder: (homeController) {
+      final isLight = homeController.themeMode == ThemeMode.light;
       return Scaffold(
         appBar: homeController.pageIndex == 4
             ? null
@@ -35,9 +36,7 @@ class HomePageMobile extends StatelessWidget {
           width: 0.5.sw,
           height: 0.8.sh,
           child: Drawer(
-            backgroundColor: homeController.themeMode == ThemeMode.light
-                ? Colors.white
-                : Colors.white70,
+            backgroundColor: isLight ? Colors.white : Colors.black,
             clipBehavior: Clip.antiAlias,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadiusDirectional.only(
@@ -54,7 +53,11 @@ class HomePageMobile extends StatelessWidget {
                     Icons.home,
                     color: Colors.blue,
                   ),
-                  title: const Text('Home'),
+                  title: Text(
+                    'Home',
+                    style:
+                        TextStyle(color: isLight ? Colors.black : Colors.white),
+                  ),
                   onTap: () {
                     Navigator.pop(context);
                     controller.animateToPage(0,
@@ -67,7 +70,11 @@ class HomePageMobile extends StatelessWidget {
                     Icons.account_box_outlined,
                     color: Colors.blue,
                   ),
-                  title: const Text('About Me'),
+                  title: Text(
+                    'About Me',
+                    style:
+                        TextStyle(color: isLight ? Colors.black : Colors.white),
+                  ),
                   onTap: () {
                     Navigator.pop(context);
                     controller.animateToPage(1,
@@ -80,7 +87,11 @@ class HomePageMobile extends StatelessWidget {
                     Icons.skateboarding_rounded,
                     color: Colors.blue,
                   ),
-                  title: const Text('Skills'),
+                  title: Text(
+                    'Skills',
+                    style:
+                        TextStyle(color: isLight ? Colors.black : Colors.white),
+                  ),
                   onTap: () {
                     Navigator.pop(context);
                     controller.animateToPage(2,
@@ -95,7 +106,11 @@ class HomePageMobile extends StatelessWidget {
                     height: 16.h,
                     width: 16.h,
                   ),
-                  title: const Text('Experience'),
+                  title: Text(
+                    'Experience',
+                    style:
+                        TextStyle(color: isLight ? Colors.black : Colors.white),
+                  ),
                   onTap: () {
                     Navigator.pop(context);
                     controller.animateToPage(3,
@@ -108,7 +123,11 @@ class HomePageMobile extends StatelessWidget {
                     Icons.contact_phone,
                     color: Colors.blue,
                   ),
-                  title: const Text('Contact Me'),
+                  title: Text(
+                    'Contact Me',
+                    style:
+                        TextStyle(color: isLight ? Colors.black : Colors.white),
+                  ),
                   onTap: () {
                     Navigator.pop(context);
                     controller.animateToPage(4,
@@ -121,54 +140,24 @@ class HomePageMobile extends StatelessWidget {
                     Icons.brightness_4_outlined,
                     color: Colors.blue,
                   ),
-                  title: Text(homeController.themeMode == ThemeMode.light
-                      ? 'DarkMode'
-                      : 'LightMode'),
+                  title: Text(
+                    isLight ? 'DarkMode' : 'LightMode',
+                    style:
+                        TextStyle(color: isLight ? Colors.black : Colors.white),
+                  ),
                   trailing: Switch(
                       trackColor: WidgetStateProperty.all(Colors.black38),
-                      activeColor: Colors.green.withOpacity(0.4),
+                      activeColor: Colors.green.withValues(alpha: 0.4),
                       activeThumbImage:
                           const AssetImage('assets/images/night.png'),
                       inactiveThumbImage:
                           const AssetImage('assets/images/light.png'),
-                      value: homeController.themeMode == ThemeMode.light
-                          ? false
-                          : true,
+                      value: isLight ? false : true,
                       onChanged: (_) {
                         homeController.setThemeMode(
-                          homeController.themeMode == ThemeMode.light
-                              ? ThemeMode.dark
-                              : ThemeMode.light,
+                          isLight ? ThemeMode.dark : ThemeMode.light,
                         );
                       }),
-
-                  //  ToggleSwitch(
-                  //   minHeight: 32.h,
-                  //   minWidth: 60.w,
-                  //   initialLabelIndex: 0,
-                  //   cornerRadius: 20.0,
-                  //   activeFgColor: Colors.white,
-                  //   inactiveFgColor: Colors.white,
-                  //   totalSwitches: 2,
-                  //   icons: const [Icons.sunny, Icons.nightlight],
-                  //   iconSize: 30.0,
-                  //   activeBgColors: const [
-                  //     [Colors.yellow, Colors.orange],
-                  //     [Colors.black45, Colors.black87],
-                  //   ],
-                  //   inactiveBgColor: Colors.black38,
-                  //   animate:
-                  //       true, // with just animate set to true, default curve = Curves.easeIn
-                  //   curve: Curves
-                  //       .bounceInOut, // animate must be set to true when using custom curve
-                  //   onToggle: (index) {
-                  //     homeController.setThemeMode(
-                  //       homeController.themeMode == ThemeMode.light
-                  //           ? ThemeMode.dark
-                  //           : ThemeMode.light,
-                  //     );
-                  //   },
-                  // ),
                   onTap: () {},
                 ),
               ],
@@ -190,9 +179,7 @@ class HomePageMobile extends StatelessWidget {
                   children: [
                     HomePageMobileView(homeController: homeController),
                     AboutMeMobilePageView(homeController: homeController),
-                    MySkillsMobilePageView(
-                      homeController: homeController,
-                    ),
+                    MySkillsMobilePageView(homeController: homeController),
                     ProfissionalExperiencePageView(
                         homeController: homeController),
                     ContactDetailsMobilePageView(

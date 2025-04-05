@@ -35,7 +35,7 @@ class ContactDetailsPageView extends StatelessWidget {
             fontWeight: FontWeight.w400,
           ),
         ),
-        22.verticalSpace,
+        32.verticalSpace,
         Expanded(
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
