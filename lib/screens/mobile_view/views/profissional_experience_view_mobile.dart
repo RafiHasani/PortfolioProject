@@ -1,4 +1,3 @@
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -39,9 +38,6 @@ class ProfissionalExperiencePageView extends StatelessWidget {
         32.verticalSpace,
         Expanded(
           child: ListView(
-            scrollDirection: Axis.vertical,
-            semanticChildCount: 3,
-            shrinkWrap: true,
             children: [
               MyProfissionalExperienceCardMobileView(
                 icon: 'assets/images/triftplan.jpg',
@@ -66,28 +62,11 @@ class ProfissionalExperiencePageView extends StatelessWidget {
               ),
               4.verticalSpace,
               MyProfissionalExperienceCardMobileView(
-                icons: CarouselSlider(
-                    items: [
-                      Image.asset('assets/images/amex.jpg'),
-                      Image.asset('assets/images/amex1.jpg'),
-                      Image.asset('assets/images/amex2.jpg'),
-                    ],
-                    options: CarouselOptions(
-                      height: 300,
-                      aspectRatio: 1 / 2,
-                      viewportFraction: 0.8,
-                      initialPage: 0,
-                      enableInfiniteScroll: true,
-                      reverse: false,
-                      autoPlay: true,
-                      autoPlayInterval: const Duration(seconds: 3),
-                      autoPlayAnimationDuration:
-                          const Duration(milliseconds: 800),
-                      autoPlayCurve: Curves.fastOutSlowIn,
-                      enlargeCenterPage: true,
-                      enlargeFactor: 0.3,
-                      scrollDirection: Axis.horizontal,
-                    )),
+                icons: PageView(children: [
+                  Image.asset('assets/images/amex.jpg'),
+                  Image.asset('assets/images/amex1.jpg'),
+                  Image.asset('assets/images/amex2.jpg'),
+                ]),
                 icon: 'assets/images/amex.jpg',
                 title: 'American Express Saudi',
                 subTitle:
@@ -97,13 +76,20 @@ class ProfissionalExperiencePageView extends StatelessWidget {
                       .launch('https://www.veroke.com/portfolio/digital-bank/');
                 },
               ),
+              4.verticalSpace,
+              MyProfissionalExperienceCardMobileView(
+                icon: 'assets/images/instalab1.webp',
+                title: 'InstaMedic',
+                subTitle:
+                    'InstaMedic, a leading drug delivery company in Qatar, dedicated to ensure seamless and timely delivery of healthcare products and medications to patients.',
+                viewMore: () {
+                  AppConfig()
+                      .launch('https://www.veroke.com/portfolio/instamedic/');
+                },
+              ),
             ],
           ),
         )
-
-        // ListView(
-        //   children: [],
-        // ),
       ],
     );
   }

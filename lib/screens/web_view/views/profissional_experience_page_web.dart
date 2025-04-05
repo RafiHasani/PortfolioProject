@@ -39,9 +39,18 @@ class ProfissionalExperiencePageView extends StatelessWidget {
         Expanded(
           child: ListView(
             scrollDirection: Axis.horizontal,
-            semanticChildCount: 3,
-            shrinkWrap: true,
+            semanticChildCount: 4,
             children: [
+              8.horizontalSpace,
+              MyProfissionalExperienceCard(
+                icon: 'assets/images/tooti2.webp',
+                title: 'Tooti',
+                subTitle:
+                    'Tooti is a social network application developed by a Software company based in kabul.',
+                viewMore: () {
+                  AppConfig().launch('https://tootisabz.tech/');
+                },
+              ),
               MyProfissionalExperienceCard(
                 icon: 'assets/images/triftplan.jpg',
                 title: 'TriftPlan',
@@ -74,13 +83,20 @@ class ProfissionalExperiencePageView extends StatelessWidget {
                       .launch('https://www.veroke.com/portfolio/digital-bank/');
                 },
               ),
+              8.horizontalSpace,
+              MyProfissionalExperienceCard(
+                icon: 'assets/images/instalab1.webp',
+                title: 'InstaMedic',
+                subTitle:
+                    'InstaMedic, a leading drug delivery company in Qatar, dedicated to ensure seamless and timely delivery of healthcare products and medications to patients.',
+                viewMore: () {
+                  AppConfig()
+                      .launch('https://www.veroke.com/portfolio/instamedic/');
+                },
+              ),
             ],
           ),
         )
-
-        // ListView(
-        //   children: [],
-        // ),
       ],
     );
   }
