@@ -34,10 +34,7 @@ class MyProfissionalExperienceCard extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset(
-              icon,
-              // color: Colors.orange.shade400,
-            ),
+            Flexible(child: Image.asset(icon)),
             8.verticalSpace,
             Text(
               title,
@@ -61,7 +58,6 @@ class MyProfissionalExperienceCard extends StatelessWidget {
                 ),
               ),
             ),
-            12.verticalSpace,
             TextButton(
                 onPressed: () {
                   viewMore();

@@ -36,9 +36,22 @@ class ProfissionalExperiencePageView extends StatelessWidget {
           ),
         ),
         32.verticalSpace,
-        Expanded(
+        SizedBox(
+          height: 0.65.sh,
           child: ListView(
+            shrinkWrap: true,
             children: [
+              4.verticalSpace,
+              MyProfissionalExperienceCardMobileView(
+                icon: 'assets/images/tooti2.webp',
+                title: 'Tooti',
+                subTitle:
+                    'Tooti is a social network application developed by a Software company based in kabul.',
+                viewMore: () {
+                  AppConfig().launch('https://tootisabz.tech/');
+                },
+              ),
+              4.verticalSpace,
               MyProfissionalExperienceCardMobileView(
                 icon: 'assets/images/triftplan.jpg',
                 title: 'TriftPlan',
@@ -62,11 +75,6 @@ class ProfissionalExperiencePageView extends StatelessWidget {
               ),
               4.verticalSpace,
               MyProfissionalExperienceCardMobileView(
-                icons: PageView(children: [
-                  Image.asset('assets/images/amex.jpg'),
-                  Image.asset('assets/images/amex1.jpg'),
-                  Image.asset('assets/images/amex2.jpg'),
-                ]),
                 icon: 'assets/images/amex.jpg',
                 title: 'American Express Saudi',
                 subTitle:

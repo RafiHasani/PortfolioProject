@@ -17,10 +17,8 @@ class MainApp extends StatelessWidget {
     return ScreenUtilInit(
       designSize: const Size(360, 720),
       minTextAdapt: true,
-      splitScreenMode: true,
       builder: (context, child) {
         return GetMaterialApp(
-          debugShowMaterialGrid: false,
           debugShowCheckedModeBanner: false,
           theme: ThemeData(
             iconButtonTheme: IconButtonThemeData(

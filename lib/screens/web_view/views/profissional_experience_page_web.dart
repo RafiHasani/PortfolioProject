@@ -39,7 +39,6 @@ class ProfissionalExperiencePageView extends StatelessWidget {
         Expanded(
           child: ListView(
             scrollDirection: Axis.horizontal,
-            semanticChildCount: 4,
             children: [
               8.horizontalSpace,
               MyProfissionalExperienceCard(
@@ -51,6 +50,7 @@ class ProfissionalExperiencePageView extends StatelessWidget {
                   AppConfig().launch('https://tootisabz.tech/');
                 },
               ),
+              8.horizontalSpace,
               MyProfissionalExperienceCard(
                 icon: 'assets/images/triftplan.jpg',
                 title: 'TriftPlan',

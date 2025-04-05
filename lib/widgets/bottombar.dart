@@ -56,7 +56,7 @@ class BottomBarWidget extends StatelessWidget {
                   child: Text(
                     "Home",
                     style: TextStyle(
-                      fontSize: 4.sp,
+                      fontSize: 6.sp,
                       color: homeController.themeMode == ThemeMode.light
                           ? Colors.black54
                           : Colors.white,
@@ -70,7 +70,7 @@ class BottomBarWidget extends StatelessWidget {
                   child: Text(
                     "About Me",
                     style: TextStyle(
-                      fontSize: 4.sp,
+                      fontSize: 6.sp,
                       color: homeController.themeMode == ThemeMode.light
                           ? Colors.black54
                           : Colors.white,
@@ -84,7 +84,7 @@ class BottomBarWidget extends StatelessWidget {
                   child: Text(
                     "Skills",
                     style: TextStyle(
-                      fontSize: 4.sp,
+                      fontSize: 6.sp,
                       color: homeController.themeMode == ThemeMode.light
                           ? Colors.black54
                           : Colors.white,
