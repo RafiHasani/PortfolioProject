@@ -127,8 +127,7 @@ class HomePageMobileView extends StatelessWidget {
             elevation: 4,
           ),
           onPressed: () {
-            AppConfig().launch(
-                'https://drive.google.com/file/d/1YkqLrrI5BPh0cx-pX3hvYxnglRi22Mqi/view');
+            AppConfig().launch(AppConfig().resumeUrl);
           },
           child: Padding(
             padding: EdgeInsets.symmetric(

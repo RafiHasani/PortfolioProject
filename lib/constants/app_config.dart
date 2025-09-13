@@ -23,7 +23,10 @@ class AppConfig {
     );
   }
 
-  getDeviceScreenType(BuildContext context) {
+  final String resumeUrl =
+      "https://drive.google.com/file/d/1CJad-6Ysu0yP4chOFpP7Wo29BaRzJ7Fr/view?usp=sharing";
+
+  int getDeviceScreenType(BuildContext context) {
     DeviceScreenType deviceType = getDeviceType(MediaQuery.of(context).size);
     var type = 0;
     switch (deviceType) {

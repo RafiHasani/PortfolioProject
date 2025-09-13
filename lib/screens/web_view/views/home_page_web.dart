@@ -173,8 +173,7 @@ class HomePageView extends StatelessWidget {
               24.verticalSpace,
               ElevatedButton(
                 onPressed: () {
-                  AppConfig().launch(
-                      'https://drive.google.com/file/d/1Yor8v073f4vED5oCmHHS3Ltz7regxQRG/view?usp=sharing');
+                  AppConfig().launch(AppConfig().resumeUrl);
                 },
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
