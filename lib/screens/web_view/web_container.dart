@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:portfolioproject/screens/web_view/views/my_skills_page_web.dart';
+import 'package:portfolioproject/widgets/sparkals_animation_container.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../../controllers/home_screen_controller.dart';
@@ -53,42 +54,45 @@ class HomePageWeb extends StatelessWidget {
                   homeController: homeController,
                 ),
               ),
-        body: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 32.w),
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              SmoothPageIndicator(
-                controller: controller,
-                count: 5,
-                axisDirection: Axis.vertical,
-                effect: const ExpandingDotsEffect(),
-              ),
-              16.horizontalSpace,
-              SizedBox(
-                width: 0.7.sw,
-                child: PageView(
-                  onPageChanged: (index) {
-                    homeController.setPageIndex(index);
-                  },
-                  physics: const ClampingScrollPhysics(),
+        body: Stack(children: [
+          SparkleSpiderAnimation(),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 32.w),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                SmoothPageIndicator(
                   controller: controller,
-                  scrollDirection: Axis.vertical,
-                  children: [
-                    HomePageView(homeController: homeController),
-                    AboutMePageView(homeController: homeController),
-                    MySkillPageView(homeController: homeController),
-                    ProfissionalExperiencePageView(
-                        homeController: homeController),
-                    ContactDetailsPageView(homeController: homeController),
-                  ],
+                  count: 5,
+                  axisDirection: Axis.vertical,
+                  effect: const ExpandingDotsEffect(),
                 ),
-              ),
-            ],
+                16.horizontalSpace,
+                SizedBox(
+                  width: 0.7.sw,
+                  child: PageView(
+                    onPageChanged: (index) {
+                      homeController.setPageIndex(index);
+                    },
+                    physics: const ClampingScrollPhysics(),
+                    controller: controller,
+                    scrollDirection: Axis.vertical,
+                    children: [
+                      HomePageView(homeController: homeController),
+                      AboutMePageView(homeController: homeController),
+                      MySkillPageView(homeController: homeController),
+                      ProfissionalExperiencePageView(
+                          homeController: homeController),
+                      ContactDetailsPageView(homeController: homeController),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
-        ),
+        ]),
         floatingActionButton: homeController.pageIndex > 2
             ? Padding(
                 padding: EdgeInsetsDirectional.only(

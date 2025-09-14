@@ -98,7 +98,7 @@ class ProfissionalExperiencePageView extends StatelessWidget {
                 ),
                 4.verticalSpace,
                 MyProfissionalExperienceCardMobileView(
-                  icon: 'assets/images/instalab1.webp',
+                  icon: 'assets/images/instalab1.png',
                   title: 'InstaMedic',
                   subTitle:
                       'InstaMedic, a leading drug delivery company in Qatar, dedicated to ensure seamless and timely delivery of healthcare products and medications to patients.',
