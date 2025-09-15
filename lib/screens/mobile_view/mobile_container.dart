@@ -10,6 +10,7 @@ import 'package:portfolioproject/screens/mobile_view/views/myskills_view_mobile.
 import 'package:portfolioproject/widgets/bottombar.dart';
 import 'package:portfolioproject/widgets/centeredview.dart';
 import 'package:portfolioproject/widgets/navbar_mobile.dart';
+import 'package:portfolioproject/widgets/sparkals_animation_container.dart';
 
 class HomePageMobile extends StatelessWidget {
   HomePageMobile({super.key});
@@ -147,7 +148,7 @@ class HomePageMobile extends StatelessWidget {
                     ),
                     trailing: Switch(
                         trackColor: WidgetStateProperty.all(Colors.black38),
-                        activeColor: Colors.green.withValues(alpha: 0.4),
+                        activeThumbColor: Colors.green.withValues(alpha: 0.4),
                         activeThumbImage:
                             const AssetImage('assets/images/night.png'),
                         inactiveThumbImage:
@@ -164,33 +165,36 @@ class HomePageMobile extends StatelessWidget {
               ),
             ),
           ),
-          body: CenteredView(
-            child: Row(
-              children: [
-                Expanded(
-                  child: PageView(
-                    padEnds: true,
-                    onPageChanged: (index) {
-                      homeController.setPageIndex(index);
-                    },
-                    controller: controller,
-                    scrollDirection: Axis.vertical,
-                    pageSnapping: false,
-                    children: [
-                      HomePageMobileView(homeController: homeController),
-                      AboutMeMobilePageView(homeController: homeController),
-                      MySkillsMobilePageView(homeController: homeController),
-                      ProfissionalExperiencePageView(
-                          homeController: homeController),
-                      ContactDetailsMobilePageView(
-                        homeController: homeController,
-                      ),
-                    ],
+          body: Stack(children: [
+            SparkleSpiderAnimation(),
+            CenteredView(
+              child: Row(
+                children: [
+                  Expanded(
+                    child: PageView(
+                      padEnds: true,
+                      onPageChanged: (index) {
+                        homeController.setPageIndex(index);
+                      },
+                      controller: controller,
+                      scrollDirection: Axis.vertical,
+                      pageSnapping: false,
+                      children: [
+                        HomePageMobileView(homeController: homeController),
+                        AboutMeMobilePageView(homeController: homeController),
+                        MySkillsMobilePageView(homeController: homeController),
+                        ProfissionalExperiencePageView(
+                            homeController: homeController),
+                        ContactDetailsMobilePageView(
+                          homeController: homeController,
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
+          ]),
           floatingActionButton: homeController.pageIndex > 2
               ? Padding(
                   padding: EdgeInsetsDirectional.only(
