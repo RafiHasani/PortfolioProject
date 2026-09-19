@@ -1,19 +1,16 @@
 import 'package:countup/countup.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../../../controllers/home_screen_controller.dart';
 import '../../../widgets/aboutme_card_widget.dart';
 
 class AboutMePageView extends StatelessWidget {
   final HomeController homeController;
-  const AboutMePageView({
-    super.key,
-    required this.homeController,
-  });
-
+  const AboutMePageView({super.key, required this.homeController});
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final textTheme = theme.textTheme;
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -23,21 +20,9 @@ class AboutMePageView extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text(
-              "About Me!",
-              style: TextStyle(
-                fontSize: 14.sp,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
+            Text("About Me!", style: textTheme.displayLarge),
             4.verticalSpace,
-            Text(
-              "A Look Into My Background!",
-              style: TextStyle(
-                fontSize: 7.sp,
-                fontWeight: FontWeight.w400,
-              ),
-            ),
+            Text("A Look Into My Background!", style: textTheme.displayLarge),
           ],
         ),
         24.verticalSpace,
@@ -51,25 +36,14 @@ class AboutMePageView extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
               children: [
-                Text(
-                  "Hello there!",
-                  style: TextStyle(
-                    fontSize: 8.sp,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
+                Text("Hello there!", style: textTheme.titleMedium),
                 4.verticalSpace,
                 SingleChildScrollView(
                   child: SizedBox(
                     width: 0.40.sw,
                     child: Text(
                       '''Hello, my name is Mohammad Rafi. I am a mobile application developer with 3 years of experience. I have successfully completed 7 projects, including iOS native applications and hybrid applications developed using Flutter. I specialize in creating user-friendly and visually appealing mobile applications that provide a seamless user experience. With my expertise in iOS development and Flutter, I am confident in my ability to contribute to any mobile app development project. I am constantly learning and staying updated with the latest trends and technologies in the mobile app development industry. I am excited to bring my skills and experience to new challenges and contribute to the success of future projects.''',
-                      style: TextStyle(
-                        fontWeight: FontWeight.w200,
-                        color: homeController.themeMode == ThemeMode.light
-                            ? Colors.black45
-                            : Colors.white60,
-                      ),
+                      style: textTheme.bodyMedium,
                       overflow: TextOverflow.visible,
                     ),
                   ),
@@ -79,8 +53,8 @@ class AboutMePageView extends StatelessWidget {
                   onPressed: () {},
                   child: Text(
                     "Say Hello",
-                    style: TextStyle(
-                      fontSize: 6.sp,
+                    style: textTheme.titleSmall?.copyWith(
+                      color: theme.primaryColor,
                     ),
                   ),
                 ),
@@ -102,11 +76,7 @@ class AboutMePageView extends StatelessWidget {
                       title: Container(),
                       subTitle: Text(
                         'BS Computer Science',
-                        style: TextStyle(
-                          fontSize: 4.sp,
-                          fontWeight: FontWeight.w600,
-                          color: Colors.black38,
-                        ),
+                        style: textTheme.labelSmall,
                         textAlign: TextAlign.center,
                       ),
                     ),
@@ -121,21 +91,13 @@ class AboutMePageView extends StatelessWidget {
                             begin: 0,
                             end: 3,
                             duration: const Duration(seconds: 2),
-                            style: TextStyle(
-                              fontSize: 4.sp,
-                              fontWeight: FontWeight.w600,
-                              color: Colors.black38,
-                            ),
+                            style: textTheme.labelSmall,
                             textAlign: TextAlign.center,
                           ),
                           2.horizontalSpace,
                           Text(
                             '+ Years',
-                            style: TextStyle(
-                              fontSize: 4.sp,
-                              fontWeight: FontWeight.w600,
-                              color: Colors.black38,
-                            ),
+                            style: textTheme.labelSmall,
                             textAlign: TextAlign.center,
                           ),
                         ],
@@ -152,21 +114,13 @@ class AboutMePageView extends StatelessWidget {
                             begin: 0,
                             end: 7,
                             duration: const Duration(seconds: 2),
-                            style: TextStyle(
-                              fontSize: 4.sp,
-                              fontWeight: FontWeight.w600,
-                              color: Colors.black38,
-                            ),
+                            style: textTheme.labelSmall,
                             textAlign: TextAlign.center,
                           ),
                           2.horizontalSpace,
                           Text(
                             '+ Projects',
-                            style: TextStyle(
-                              fontSize: 4.sp,
-                              fontWeight: FontWeight.w600,
-                              color: Colors.black38,
-                            ),
+                            style: textTheme.labelSmall,
                             textAlign: TextAlign.center,
                           ),
                         ],

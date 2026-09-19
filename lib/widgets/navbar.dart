@@ -1,9 +1,9 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:portfolioproject/controllers/home_screen_controller.dart';
 
-class NavBarWidget extends StatelessWidget {
+class NavBarWidget extends StatelessWidget implements PreferredSizeWidget {
   final Function(int index) menuCallback;
   final HomeController homeController;
   const NavBarWidget({
@@ -11,35 +11,21 @@ class NavBarWidget extends StatelessWidget {
     required this.menuCallback,
     required this.homeController,
   });
-
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final textTheme = theme.textTheme;
     return Material(
       elevation: 1,
-      color: homeController.themeMode == ThemeMode.light
-          ? Colors.white
-          : Colors.black,
-      shadowColor: Colors.black45,
       child: Container(
-        padding: EdgeInsets.symmetric(
-          horizontal: 32.w,
-          vertical: 8.h,
-        ),
+        padding: EdgeInsets.symmetric(horizontal: 32.w, vertical: 8.h),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           mainAxisSize: MainAxisSize.min,
           children: [
             Row(
               mainAxisSize: MainAxisSize.min,
-              children: [
-                Text(
-                  "Mohammad Rafi.",
-                  style: TextStyle(
-                    fontSize: 8.sp,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-              ],
+              children: [Text("Mohammad Rafi.", style: textTheme.titleMedium)],
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -52,43 +38,19 @@ class NavBarWidget extends StatelessWidget {
                       onPressed: () {
                         menuCallback(0);
                       },
-                      child: Text(
-                        "Home",
-                        style: TextStyle(
-                          fontSize: 6.sp,
-                          color: homeController.themeMode == ThemeMode.light
-                              ? Colors.black54
-                              : Colors.white,
-                        ),
-                      ),
+                      child: Text("Home", style: textTheme.labelLarge),
                     ),
                     TextButton(
                       onPressed: () {
                         menuCallback(1);
                       },
-                      child: Text(
-                        "About Me",
-                        style: TextStyle(
-                          fontSize: 6.sp,
-                          color: homeController.themeMode == ThemeMode.light
-                              ? Colors.black54
-                              : Colors.white,
-                        ),
-                      ),
+                      child: Text("About Me", style: textTheme.labelLarge),
                     ),
                     TextButton(
                       onPressed: () {
                         menuCallback(2);
                       },
-                      child: Text(
-                        "Skills",
-                        style: TextStyle(
-                          fontSize: 6.sp,
-                          color: homeController.themeMode == ThemeMode.light
-                              ? Colors.black54
-                              : Colors.white,
-                        ),
-                      ),
+                      child: Text("Skills", style: textTheme.labelLarge),
                     ),
                   ],
                 ),
@@ -96,23 +58,23 @@ class NavBarWidget extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Switch(
-                        trackColor: WidgetStateProperty.all(Colors.white30),
-                        activeColor: Colors.green.withValues(alpha: 0.4),
-                        activeThumbImage:
-                            const AssetImage('assets/images/night.png'),
-                        inactiveThumbImage:
-                            const AssetImage('assets/images/light.png'),
-                        value: homeController.themeMode == ThemeMode.light
-                            ? false
-                            : true,
-                        inactiveTrackColor: Colors.white,
-                        onChanged: (_) {
-                          homeController.setThemeMode(
-                            homeController.themeMode == ThemeMode.light
-                                ? ThemeMode.dark
-                                : ThemeMode.light,
-                          );
-                        }),
+                      trackColor: WidgetStateProperty.all(Colors.white30),
+                      activeThumbColor: Colors.green.withValues(alpha: 0.4),
+                      activeThumbImage: const AssetImage(
+                        'assets/images/night.png',
+                      ),
+                      inactiveThumbImage: const AssetImage(
+                        'assets/images/light.png',
+                      ),
+                      value: Get.isDarkMode,
+                      inactiveTrackColor: Colors.black,
+                      activeTrackColor: Colors.white,
+                      onChanged: (_) {
+                        homeController.setThemeMode(
+                          homeController.themeMode == .light ? .dark : .light,
+                        );
+                      },
+                    ),
                   ],
                 ),
               ],
@@ -122,4 +84,7 @@ class NavBarWidget extends StatelessWidget {
       ),
     );
   }
+
+  @override
+  Size get preferredSize => Size.fromHeight(0.1.sh);
 }

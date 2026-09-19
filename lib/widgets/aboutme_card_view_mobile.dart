@@ -19,35 +19,41 @@ class AboutMeCardsMobileWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final colorScheme = theme.colorScheme;
+
     return Material(
       elevation: 1,
+      color: colorScheme.surfaceContainer,
       borderRadius: BorderRadius.circular(8.r),
       clipBehavior: Clip.antiAlias,
       child: Container(
-        clipBehavior: Clip.antiAlias,
         height: height ?? 0.15.sh,
         width: width ?? 0.15.sh,
         padding: EdgeInsets.all(8.r),
         decoration: BoxDecoration(
-          border: Border.all(
-            width: 0.5,
-            color: Colors.black12,
-          ),
+          borderRadius: BorderRadius.circular(8.r),
+          border: Border.all(width: 0.5, color: colorScheme.outlineVariant),
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisSize: .min,
           children: [
             Image.asset(
               icon,
               height: 24.h,
               width: 24.w,
-              color: Colors.orange.shade500,
+              color: colorScheme.primary,
             ),
+
             8.verticalSpace,
+
             title,
+
             8.verticalSpace,
-            subTitle
+
+            subTitle,
           ],
         ),
       ),

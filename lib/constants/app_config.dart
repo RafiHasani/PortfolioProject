@@ -24,7 +24,7 @@ class AppConfig {
   }
 
   final String resumeUrl =
-      "https://drive.google.com/file/d/1CJad-6Ysu0yP4chOFpP7Wo29BaRzJ7Fr/view?usp=sharing";
+      "https://drive.google.com/file/d/1m4KZYWgU4zk6up9tb6GzJSmzdsXx-IRa/view?usp=sharing";
 
   int getDeviceScreenType(BuildContext context) {
     DeviceScreenType deviceType = getDeviceType(MediaQuery.of(context).size);
@@ -49,9 +49,6 @@ class AppConfig {
   static String routePdfViewPage = '/Resume';
 
   List<GetPage> routeMap = [
-    GetPage(
-      name: routeHomeScreenPage,
-      page: () => const HomePageScreen(),
-    ),
+    GetPage(name: routeHomeScreenPage, page: () => const HomePageScreen()),
   ];
 }

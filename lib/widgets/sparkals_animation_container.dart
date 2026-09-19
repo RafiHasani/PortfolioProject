@@ -26,12 +26,13 @@ class _SparkleSpiderAnimationState extends State<SparkleSpiderAnimation>
     }
 
     // Animation controller for continuous redraw
-    _controller = AnimationController(
-      vsync: this,
-      duration: const Duration(milliseconds: 16),
-    )..addListener(() {
-        updateParticles();
-      });
+    _controller =
+        AnimationController(
+          vsync: this,
+          duration: const Duration(milliseconds: 16),
+        )..addListener(() {
+          updateParticles();
+        });
 
     _controller.repeat(); // infinite loop
   }
@@ -53,12 +54,12 @@ class _SparkleSpiderAnimationState extends State<SparkleSpiderAnimation>
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Scaffold(
-        backgroundColor: theme.scaffoldBackgroundColor,
-        body: CustomPaint(
-          painter:
-              SpiderPainter(particles: particles, maxDistance: maxDistance),
-          child: Container(),
-        ));
+      backgroundColor: theme.scaffoldBackgroundColor,
+      body: CustomPaint(
+        painter: SpiderPainter(particles: particles, maxDistance: maxDistance),
+        child: Container(),
+      ),
+    );
   }
 }
 
@@ -118,7 +119,7 @@ class SpiderPainter extends CustomPainter {
 
         if (distance < maxDistance) {
           final opacity = (1 - (distance / maxDistance)).clamp(0.0, 1.0);
-          linePaint.color = Colors.grey.withOpacity(opacity);
+          linePaint.color = Colors.grey.withValues(alpha: opacity);
           canvas.drawLine(p1, p2, linePaint);
         }
       }

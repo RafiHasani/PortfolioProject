@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:portfolioproject/constants/app_config.dart';
 import 'package:portfolioproject/widgets/profissional_experience_cards_widget.dart';
@@ -16,29 +15,20 @@ class ProfissionalExperiencePageView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final textTheme = theme.textTheme;
+
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Text(
-          "Professional Experience",
-          style: TextStyle(
-            fontSize: 14.sp,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
+        Text("Professional Experience", style: textTheme.displayLarge),
         4.verticalSpace,
-        Text(
-          "Realworld Experiences",
-          style: TextStyle(
-            fontSize: 7.sp,
-            fontWeight: FontWeight.w400,
-          ),
-        ),
+        Text("Realworld Experiences", style: textTheme.displayLarge),
         32.verticalSpace,
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
-          physics: PageScrollPhysics(),
+          physics: ClampingScrollPhysics(),
           child: Row(
             spacing: 8.w,
             children: [
@@ -66,8 +56,9 @@ class ProfissionalExperiencePageView extends StatelessWidget {
                 subTitle:
                     'A Tale of Veroke’s Fintech Revolution: Empowering Financial Futures with Thrift Plan.',
                 viewMore: () {
-                  AppConfig()
-                      .launch('https://www.veroke.com/portfolio/thriftplan/');
+                  AppConfig().launch(
+                    'https://www.veroke.com/portfolio/thriftplan/',
+                  );
                 },
               ),
               MyProfissionalExperienceCard(
@@ -76,8 +67,9 @@ class ProfissionalExperiencePageView extends StatelessWidget {
                 subTitle:
                     'Art Station, an innovative mobile application, acts as a vital intermediary between two distinct user groups; talented artists listed on their platform and event organizers seeking to book their services.',
                 viewMore: () {
-                  AppConfig()
-                      .launch('https://www.veroke.com/portfolio/art-station/');
+                  AppConfig().launch(
+                    'https://www.veroke.com/portfolio/art-station/',
+                  );
                 },
               ),
               MyProfissionalExperienceCard(
@@ -86,8 +78,9 @@ class ProfissionalExperiencePageView extends StatelessWidget {
                 subTitle:
                     'A leading banking company in Saudi Arabia aiming to deliver an unrivaled standard of excellence. Focusing on developing and innovating advanced payment solutions for customers.',
                 viewMore: () {
-                  AppConfig()
-                      .launch('https://www.veroke.com/portfolio/digital-bank/');
+                  AppConfig().launch(
+                    'https://www.veroke.com/portfolio/digital-bank/',
+                  );
                 },
               ),
               MyProfissionalExperienceCard(
@@ -96,13 +89,14 @@ class ProfissionalExperiencePageView extends StatelessWidget {
                 subTitle:
                     'InstaMedic, a leading drug delivery company in Qatar, dedicated to ensure seamless and timely delivery of healthcare products and medications to patients.',
                 viewMore: () {
-                  AppConfig()
-                      .launch('https://www.veroke.com/portfolio/instamedic/');
+                  AppConfig().launch(
+                    'https://www.veroke.com/portfolio/instamedic/',
+                  );
                 },
               ),
             ],
           ),
-        )
+        ),
       ],
     );
   }

@@ -21,8 +21,9 @@ class MainApp extends StatelessWidget {
       builder: (context, child) {
         return GetMaterialApp(
           debugShowCheckedModeBanner: false,
-          theme: lightTheme,
-          darkTheme: darkTheme,
+          theme: PortfolioTheme.lightTheme,
+          darkTheme: PortfolioTheme.darkTheme,
+          themeMode: ThemeMode.system,
           initialBinding: BindingsBuilder(() {
             Get.put(
               HomeController(),

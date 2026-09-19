@@ -2,17 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../constants/app_config.dart';
-import '../../../controllers/home_screen_controller.dart';
 
 class MySkillsDialogWidgetSwift extends StatelessWidget {
-  final HomeController homeController;
-  const MySkillsDialogWidgetSwift({
-    super.key,
-    required this.homeController,
-  });
+  const MySkillsDialogWidgetSwift({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final textTheme = theme.textTheme;
+    final colorScheme = theme.colorScheme;
+
     return Center(
       child: Container(
         height: 0.5.sh,
@@ -20,7 +19,7 @@ class MySkillsDialogWidgetSwift extends StatelessWidget {
         padding: EdgeInsets.all(16.r),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(8.r),
-          color: const Color.fromARGB(250, 255, 255, 255),
+          color: colorScheme.surfaceContainer,
         ),
         child: Padding(
           padding: EdgeInsets.all(8.r),
@@ -30,150 +29,48 @@ class MySkillsDialogWidgetSwift extends StatelessWidget {
             children: [
               Text(
                 'Veroke',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 6.sp,
+                style: textTheme.titleMedium?.copyWith(
                   decoration: TextDecoration.none,
                 ),
               ),
               24.verticalSpace,
               Text(
-                '''I started working as junior software deverloper in March 2021 with Veroke. I was developing mobile application for iOS platform. ''',
-                style: TextStyle(
-                  color: Colors.black54,
-                  fontSize: 4.sp,
-                  height: 1.3.h,
+                'I started working as junior software developer in March 2021 '
+                'with Veroke. I was developing mobile applications for iOS platform.',
+                style: textTheme.bodyMedium?.copyWith(
+                  height: 1.3,
                   decoration: TextDecoration.none,
                 ),
                 textAlign: TextAlign.center,
               ),
               8.verticalSpace,
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: EdgeInsets.all(8.r),
                 child: Column(
                   children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Icon(
-                          Icons.arrow_forward,
-                          color: Colors.orange,
-                          size: 8.r,
-                        ),
-                        4.horizontalSpace,
-                        Text(
-                          'UI : Figma design to Storyboard',
-                          style: TextStyle(
-                            color: Colors.black54,
-                            fontSize: 4.sp,
-                            decoration: TextDecoration.none,
-                          ),
-                        ),
-                      ],
+                    _buildSkillItem(context, 'UI : Figma design to Storyboard'),
+                    8.verticalSpace,
+                    _buildSkillItem(
+                      context,
+                      'Design Pattern : MVC, MVVM',
+                      iconSize: 16.r,
                     ),
                     8.verticalSpace,
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Icon(
-                          Icons.arrow_forward,
-                          color: Colors.orange,
-                          size: 16.r,
-                        ),
-                        4.horizontalSpace,
-                        Text(
-                          'Deisgn Patter : MVC, MVVM',
-                          style: TextStyle(
-                            color: Colors.black54,
-                            fontSize: 4.sp,
-                            decoration: TextDecoration.none,
-                          ),
-                        ),
-                      ],
+                    _buildSkillItem(context, 'API : REST API implementation'),
+                    8.verticalSpace,
+                    _buildSkillItem(context, 'Tools : Xcode'),
+                    8.verticalSpace,
+                    _buildSkillItem(
+                      context,
+                      '#Projects : ThriftPlan, ArtStation, SpaStation',
                     ),
                     8.verticalSpace,
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Icon(
-                          Icons.arrow_forward,
-                          color: Colors.orange,
-                          size: 8.r,
-                        ),
-                        4.horizontalSpace,
-                        Text(
-                          'API : Rest api implementation',
-                          style: TextStyle(
-                            color: Colors.black54,
-                            fontSize: 4.sp,
-                            decoration: TextDecoration.none,
-                          ),
-                        ),
-                      ],
-                    ),
-                    8.verticalSpace,
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Icon(
-                          Icons.arrow_forward,
-                          color: Colors.orange,
-                          size: 8.r,
-                        ),
-                        4.horizontalSpace,
-                        Text(
-                          'Tools : Xcode',
-                          style: TextStyle(
-                            color: Colors.black54,
-                            fontSize: 4.sp,
-                            decoration: TextDecoration.none,
-                          ),
-                        ),
-                      ],
-                    ),
-                    8.verticalSpace,
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Icon(
-                          Icons.arrow_forward,
-                          color: Colors.orange,
-                          size: 8.r,
-                        ),
-                        4.horizontalSpace,
-                        Text(
-                          '#Projects : ThriftPlan, ArtStation, SpaStation',
-                          style: TextStyle(
-                            color: Colors.black54,
-                            fontSize: 4.sp,
-                            decoration: TextDecoration.none,
-                          ),
-                        ),
-                      ],
-                    ),
-                    8.verticalSpace,
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Icon(
-                          Icons.payments,
-                          size: 7.r,
-                          color: Colors.orange,
-                        ),
-                        4.horizontalSpace,
-                        Expanded(
-                          child: Text(
-                            'Payment Getway Integration : Payfort,Tabby payment system',
-                            style: TextStyle(
-                              color: Colors.black54,
-                              fontSize: 4.sp,
-                              decoration: TextDecoration.none,
-                            ),
-                          ),
-                        ),
-                      ],
+                    _buildSkillItem(
+                      context,
+                      'Payment Gateway Integration : '
+                      'Payfort, Tabby payment system',
+                      icon: Icons.payments,
+                      iconSize: 7.r,
                     ),
                   ],
                 ),
@@ -182,6 +79,33 @@ class MySkillsDialogWidgetSwift extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+
+  Widget _buildSkillItem(
+    BuildContext context,
+    String text, {
+    IconData icon = Icons.arrow_forward,
+    double? iconSize,
+  }) {
+    final theme = Theme.of(context);
+    final textTheme = theme.textTheme;
+    final colorScheme = theme.colorScheme;
+
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Icon(icon, color: colorScheme.primary, size: iconSize ?? 8.r),
+        4.horizontalSpace,
+        Expanded(
+          child: Text(
+            text,
+            style: textTheme.bodySmall?.copyWith(
+              decoration: TextDecoration.none,
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

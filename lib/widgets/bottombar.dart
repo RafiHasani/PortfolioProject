@@ -23,9 +23,7 @@ class BottomBarWidget extends StatelessWidget {
           : Colors.black,
       shadowColor: Colors.black45,
       child: Container(
-        padding: EdgeInsets.symmetric(
-          horizontal: 42.w,
-        ),
+        padding: EdgeInsets.symmetric(horizontal: 42.w),
         color: homeController.themeMode == ThemeMode.light
             ? Colors.white
             : Colors.black,
@@ -38,10 +36,7 @@ class BottomBarWidget extends StatelessWidget {
               children: [
                 Text(
                   "Mohammad Rafi Hasani",
-                  style: TextStyle(
-                    fontSize: 8.sp,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: TextStyle(fontSize: 8.sp, fontWeight: FontWeight.bold),
                 ),
               ],
             ),
@@ -93,37 +88,34 @@ class BottomBarWidget extends StatelessWidget {
                 ),
               ],
             ),
+            8.verticalSpace,
             Row(
+              spacing: 8.w,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                IconButton(
+                IconButton.filled(
+                  color: Colors.blue,
                   onPressed: () {
                     AppConfig().launch('https://github.com/RafiHasani');
                   },
                   icon: Image.asset(
                     'assets/images/github_logo.png',
-                    color: Colors.blue,
-                    height: 16.h,
-                    width: 16.h,
+                    height: 14.h,
+                    width: 14.h,
                   ),
                 ),
-                24.verticalSpace,
-                IconButton(
+
+                IconButton.filled(
+                  color: Colors.blue,
                   onPressed: () {
                     AppConfig().launch(
-                        'https://www.linkedin.com/in/mrafi-hasani-2016/');
+                      'https://www.linkedin.com/in/mrafi-hasani-2016',
+                    );
                   },
-                  icon: Container(
-                    padding: EdgeInsets.all(1.r),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(4.r),
-                      color: Colors.blue,
-                    ),
-                    child: Image.asset(
-                      "assets/images/linkedin.png",
-                      height: 16.h,
-                      width: 16.h,
-                    ),
+                  icon: Image.asset(
+                    "assets/images/linkedin.png",
+                    height: 14.h,
+                    width: 14.h,
                   ),
                 ),
               ],

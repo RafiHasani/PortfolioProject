@@ -5,6 +5,7 @@ class AboutMeCardsWidget extends StatelessWidget {
   final String icon;
   final Widget title;
   final Widget subTitle;
+
   const AboutMeCardsWidget({
     super.key,
     required this.icon,
@@ -14,20 +15,21 @@ class AboutMeCardsWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final colorScheme = theme.colorScheme;
+
     return Material(
       elevation: 1,
       borderRadius: BorderRadius.circular(8.r),
       clipBehavior: Clip.antiAlias,
+      color: colorScheme.surfaceContainer,
       child: Container(
-        clipBehavior: Clip.antiAlias,
         height: 0.12.sh,
         width: 0.16.sw,
         padding: EdgeInsets.all(8.r),
         decoration: BoxDecoration(
-          border: Border.all(
-            width: 0.5,
-            color: Colors.black12,
-          ),
+          border: Border.all(width: 0.5, color: colorScheme.outlineVariant),
+          borderRadius: BorderRadius.circular(8.r),
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -43,7 +45,7 @@ class AboutMeCardsWidget extends StatelessWidget {
             8.verticalSpace,
             title,
             8.verticalSpace,
-            subTitle
+            subTitle,
           ],
         ),
       ),

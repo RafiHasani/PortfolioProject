@@ -6,14 +6,14 @@ import '../../../controllers/home_screen_controller.dart';
 
 class HomePageView extends StatelessWidget {
   final HomeController homeController;
-  const HomePageView({
-    super.key,
-    required this.homeController,
-  });
+
+  const HomePageView({super.key, required this.homeController});
 
   @override
   Widget build(BuildContext context) {
-    final isLight = homeController.themeMode == ThemeMode.light;
+    final theme = Theme.of(context);
+    final textTheme = theme.textTheme;
+
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -26,34 +26,29 @@ class HomePageView extends StatelessWidget {
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                IconButton(
+                IconButton.filled(
+                  color: Colors.blue,
                   onPressed: () {
                     AppConfig().launch('https://github.com/RafiHasani');
                   },
                   icon: Image.asset(
                     'assets/images/github_logo.png',
-                    color: Colors.blue,
-                    height: 24.h,
-                    width: 24.h,
+                    height: 22.h,
+                    width: 22.h,
                   ),
                 ),
                 16.verticalSpace,
-                IconButton(
+                IconButton.filled(
+                  color: Colors.blue,
                   onPressed: () {
                     AppConfig().launch(
-                        'https://af.linkedin.com/in/mrafi-hasani-2016?trk=people-guest_people_search-card');
+                      'https://www.linkedin.com/in/mrafi-hasani-2016',
+                    );
                   },
-                  icon: Container(
-                    padding: EdgeInsets.all(1.r),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(4.r),
-                      color: Colors.blue,
-                    ),
-                    child: Image.asset(
-                      "assets/images/linkedin.png",
-                      height: 22.h,
-                      width: 22.h,
-                    ),
+                  icon: Image.asset(
+                    "assets/images/linkedin.png",
+                    height: 22.h,
+                    width: 22.h,
                   ),
                 ),
               ],
@@ -78,13 +73,7 @@ class HomePageView extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      Text(
-                        "HI!",
-                        style: TextStyle(
-                          fontSize: 10.sp,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
+                      Text("HI!", style: textTheme.displayLarge),
                       Image.asset(
                         "assets/images/hi.png",
                         height: 16.h,
@@ -92,13 +81,7 @@ class HomePageView extends StatelessWidget {
                       ),
                     ],
                   ),
-                  Text(
-                    "Mohammad Rafi \nHasani",
-                    style: TextStyle(
-                      fontSize: 10.sp,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
+                  Text("Mohammad Rafi \nHasani", style: textTheme.displayLarge),
                 ],
               ),
               16.verticalSpace,
@@ -119,11 +102,7 @@ class HomePageView extends StatelessWidget {
                   Expanded(
                     child: Text(
                       "Mobile Application Developer",
-                      style: TextStyle(
-                        fontSize: 8.sp,
-                        fontWeight: FontWeight.w600,
-                        color: isLight ? Colors.black54 : Colors.white60,
-                      ),
+                      style: textTheme.titleMedium,
                     ),
                   ),
                 ],
@@ -133,13 +112,8 @@ class HomePageView extends StatelessWidget {
                 fit: FlexFit.loose,
                 child: Text(
                   '''Thank you for visiting my portfolio! I am delighted to present my work as a professional mobile application developer. With a strong passion for creating apps that are intuitive and user-friendly, I have dedicated myself to developing innovative solutions that enhance and simplify everyday life. Through this portfolio, I aim to demonstrate the wide range of mobile applications I have created, each specifically designed to meet the unique needs and preferences of users. I am confident that my applications will captivate your interest.''',
-                  style: TextStyle(
-                    fontWeight: FontWeight.w200,
-                    color: isLight ? Colors.black45 : Colors.white60,
-                    height: 1.2.h,
-                  ),
+                  style: textTheme.bodyMedium,
                   overflow: TextOverflow.visible,
-                  // softWrap: true,
                 ),
               ),
               24.verticalSpace,
@@ -147,52 +121,29 @@ class HomePageView extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Icon(
-                    Icons.share_location_sharp,
-                    color: isLight ? Colors.black45 : Colors.white38,
-                  ),
+                  Icon(Icons.share_location_sharp),
                   4.horizontalSpace,
-                  Text(
-                    "Kabul,",
-                    style: TextStyle(
-                      fontSize: 6.sp,
-                      color: Colors.blue,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  Text(
-                    " Afghanistan.",
-                    style: TextStyle(
-                      fontSize: 6.sp,
-                      color: isLight ? Colors.black45 : Colors.white38,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
+                  Text("Kabul,", style: textTheme.titleSmall),
+                  Text(" Afghanistan.", style: textTheme.titleSmall),
                 ],
               ),
               24.verticalSpace,
-              ElevatedButton(
+              ElevatedButton.icon(
                 onPressed: () {
                   AppConfig().launch(AppConfig().resumeUrl);
                 },
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Text(
-                      "Resume",
-                      style: TextStyle(
-                        fontSize: 6.sp,
-                      ),
-                    ),
-                    4.horizontalSpace,
-                    Icon(
-                      Icons.chrome_reader_mode,
-                      size: 12.r,
-                    ),
-                  ],
+                label: Text(
+                  "Resume",
+                  style: textTheme.titleSmall?.copyWith(
+                    color: theme.primaryColor,
+                  ),
                 ),
+                icon: Icon(
+                  Icons.chrome_reader_mode,
+                  size: 12.r,
+                  color: theme.primaryColor,
+                ),
+                iconAlignment: .end,
               ),
               8.verticalSpace,
             ],

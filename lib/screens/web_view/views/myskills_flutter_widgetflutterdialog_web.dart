@@ -2,17 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../constants/app_config.dart';
-import '../../../controllers/home_screen_controller.dart';
 
 class MySkillsDialogFlutterWidget extends StatelessWidget {
-  final HomeController homeController;
-  const MySkillsDialogFlutterWidget({
-    super.key,
-    required this.homeController,
-  });
+  const MySkillsDialogFlutterWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final textTheme = theme.textTheme;
+    final colorScheme = theme.colorScheme;
+
     return Center(
       child: Container(
         height: 0.5.sh,
@@ -20,7 +19,7 @@ class MySkillsDialogFlutterWidget extends StatelessWidget {
         padding: EdgeInsets.all(16.r),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(8.r),
-          color: const Color.fromARGB(250, 255, 255, 255),
+          color: colorScheme.surfaceContainer,
         ),
         child: Padding(
           padding: EdgeInsets.all(8.r),
@@ -30,141 +29,41 @@ class MySkillsDialogFlutterWidget extends StatelessWidget {
             children: [
               Text(
                 'Veroke',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 4.sp,
+                style: textTheme.titleMedium?.copyWith(
                   decoration: TextDecoration.none,
                 ),
               ),
               24.verticalSpace,
               Text(
-                '''In September 2022 work as Flutter deverloper with Veroke. I was developing mobile application for both iOS & android platforms. ''',
-                style: TextStyle(
-                  color: Colors.black54,
-                  fontSize: 4.sp,
-                  height: 1.3.h,
+                'In September 2022 work as Flutter developer with Veroke. '
+                'I was developing mobile application for both iOS & Android platforms.',
+                style: textTheme.bodyMedium?.copyWith(
+                  height: 1.3,
                   decoration: TextDecoration.none,
                 ),
                 textAlign: TextAlign.center,
               ),
               8.verticalSpace,
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: EdgeInsets.all(8.r),
                 child: Column(
                   children: [
-                    Row(
-                      children: [
-                        Icon(
-                          Icons.arrow_forward,
-                          color: Colors.orange,
-                          size: 8.r,
-                        ),
-                        4.horizontalSpace,
-                        Text(
-                          'UI : Figma design to Flutter UI',
-                          style: TextStyle(
-                            color: Colors.black54,
-                            fontSize: 4.sp,
-                            decoration: TextDecoration.none,
-                          ),
-                        ),
-                      ],
+                    _buildSkillItem(context, 'UI : Figma design to Flutter UI'),
+                    8.verticalSpace,
+                    _buildSkillItem(context, 'State Management : GetX, BLoC'),
+                    8.verticalSpace,
+                    _buildSkillItem(context, 'Design Pattern : MVC'),
+                    8.verticalSpace,
+                    _buildSkillItem(
+                      context,
+                      'API : REST & SOAP API implementation',
                     ),
                     8.verticalSpace,
-                    Row(
-                      children: [
-                        Icon(
-                          Icons.arrow_forward,
-                          color: Colors.orange,
-                          size: 8.r,
-                        ),
-                        4.horizontalSpace,
-                        Text(
-                          'State Management : Getx, Bloc',
-                          style: TextStyle(
-                            color: Colors.black54,
-                            fontSize: 4.sp,
-                            decoration: TextDecoration.none,
-                          ),
-                        ),
-                      ],
-                    ),
+                    _buildSkillItem(context, 'Tools : VSCode'),
                     8.verticalSpace,
-                    Row(
-                      children: [
-                        Icon(
-                          Icons.arrow_forward,
-                          color: Colors.orange,
-                          size: 8.r,
-                        ),
-                        4.horizontalSpace,
-                        Text(
-                          'Deisgn Patter : MVC',
-                          style: TextStyle(
-                            color: Colors.black54,
-                            fontSize: 4.sp,
-                            decoration: TextDecoration.none,
-                          ),
-                        ),
-                      ],
-                    ),
-                    8.verticalSpace,
-                    Row(
-                      children: [
-                        Icon(
-                          Icons.arrow_forward,
-                          color: Colors.orange,
-                          size: 8.r,
-                        ),
-                        4.horizontalSpace,
-                        Text(
-                          'API : REST & SOAp api implementation',
-                          style: TextStyle(
-                            color: Colors.black54,
-                            fontSize: 4.sp,
-                            decoration: TextDecoration.none,
-                          ),
-                        ),
-                      ],
-                    ),
-                    8.verticalSpace,
-                    Row(
-                      children: [
-                        Icon(
-                          Icons.arrow_forward,
-                          color: Colors.orange,
-                          size: 8.r,
-                        ),
-                        4.horizontalSpace,
-                        Text(
-                          'Tools : VSCode',
-                          style: TextStyle(
-                            color: Colors.black54,
-                            fontSize: 4.sp,
-                            decoration: TextDecoration.none,
-                          ),
-                        ),
-                      ],
-                    ),
-                    8.verticalSpace,
-                    Row(
-                      children: [
-                        Icon(
-                          Icons.arrow_forward,
-                          color: Colors.orange,
-                          size: 8.r,
-                        ),
-                        4.horizontalSpace,
-                        Text(
-                          '#Projects : American Express KSA , Majoor ',
-                          style: TextStyle(
-                            color: Colors.black54,
-                            fontSize: 4.sp,
-                            decoration: TextDecoration.none,
-                          ),
-                        ),
-                      ],
+                    _buildSkillItem(
+                      context,
+                      '#Projects : American Express KSA, Majoor',
                     ),
                   ],
                 ),
@@ -173,6 +72,27 @@ class MySkillsDialogFlutterWidget extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+
+  Widget _buildSkillItem(BuildContext context, String text) {
+    final theme = Theme.of(context);
+    final textTheme = theme.textTheme;
+    final colorScheme = theme.colorScheme;
+
+    return Row(
+      children: [
+        Icon(Icons.arrow_forward, color: colorScheme.primary, size: 8.r),
+        4.horizontalSpace,
+        Expanded(
+          child: Text(
+            text,
+            style: textTheme.bodySmall?.copyWith(
+              decoration: TextDecoration.none,
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

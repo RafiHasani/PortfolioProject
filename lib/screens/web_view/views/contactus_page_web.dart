@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:portfolioproject/widgets/contactus_card_widget.dart';
@@ -8,33 +6,22 @@ import '../../../controllers/home_screen_controller.dart';
 
 class ContactDetailsPageView extends StatelessWidget {
   final HomeController homeController;
-  const ContactDetailsPageView({
-    required this.homeController,
-    super.key,
-  });
+
+  const ContactDetailsPageView({required this.homeController, super.key});
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final textTheme = theme.textTheme;
+
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisSize: MainAxisSize.min,
       children: [
-        Text(
-          "Contact Details",
-          style: TextStyle(
-            fontSize: 14.sp,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
+        Text("Contact Details", style: textTheme.displayLarge),
         4.verticalSpace,
-        Text(
-          "Ways to get in touch with me",
-          style: TextStyle(
-            fontSize: 7.sp,
-            fontWeight: FontWeight.w400,
-          ),
-        ),
+        Text("Ways to get in touch with me", style: textTheme.displayLarge),
         32.verticalSpace,
         Expanded(
           child: Row(
@@ -45,13 +32,7 @@ class ContactDetailsPageView extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Text(
-                    "Talk to me",
-                    style: TextStyle(
-                      fontSize: 6.sp,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
+                  Text("Talk to me", style: textTheme.titleMedium),
                   16.verticalSpace,
                   ContactTalkCardWidget(
                     icon: Icon(
@@ -85,16 +66,10 @@ class ContactDetailsPageView extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      "Write email",
-                      style: TextStyle(
-                        fontSize: 6.sp,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
+                    Text("Write email", style: textTheme.titleMedium),
                     16.verticalSpace,
                     TextField(
-                      style: TextStyle(fontSize: 6.sp),
+                      style: textTheme.bodyMedium,
                       decoration: InputDecoration(
                         isDense: true,
                         border: OutlineInputBorder(
@@ -102,37 +77,26 @@ class ContactDetailsPageView extends StatelessWidget {
                         ),
                         hintText: 'Write your name',
                         labelText: 'Name',
-                        hintStyle: TextStyle(
-                          fontSize: 6.sp,
-                          color: homeController.themeMode == ThemeMode.light
-                              ? Colors.black54
-                              : Colors.white60,
-                        ),
                         floatingLabelBehavior: FloatingLabelBehavior.always,
                       ),
                     ),
                     16.verticalSpace,
                     TextField(
-                      style: TextStyle(fontSize: 6.sp),
+                      style: textTheme.bodyMedium,
                       decoration: InputDecoration(
-                          isDense: true,
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(16.r),
-                          ),
-                          hintText: 'Write your email',
-                          labelText: 'Mail',
-                          hintStyle: TextStyle(
-                            fontSize: 6.sp,
-                            color: homeController.themeMode == ThemeMode.light
-                                ? Colors.black54
-                                : Colors.white60,
-                          ),
-                          floatingLabelBehavior: FloatingLabelBehavior.always),
+                        isDense: true,
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(16.r),
+                        ),
+                        hintText: 'Write your email',
+                        labelText: 'Mail',
+                        floatingLabelBehavior: FloatingLabelBehavior.always,
+                      ),
                     ),
                     16.verticalSpace,
                     Expanded(
                       child: TextField(
-                        style: TextStyle(fontSize: 6.sp),
+                        style: textTheme.bodyMedium,
                         textAlignVertical: TextAlignVertical.top,
                         decoration: InputDecoration(
                           isDense: false,
@@ -140,12 +104,6 @@ class ContactDetailsPageView extends StatelessWidget {
                             borderRadius: BorderRadius.circular(16.r),
                           ),
                           hintText: 'What is on your mind!',
-                          hintStyle: TextStyle(
-                            fontSize: 6.sp,
-                            color: homeController.themeMode == ThemeMode.light
-                                ? Colors.black54
-                                : Colors.white60,
-                          ),
                           labelText: 'Message',
                           floatingLabelBehavior: FloatingLabelBehavior.always,
                         ),
@@ -154,43 +112,24 @@ class ContactDetailsPageView extends StatelessWidget {
                       ),
                     ),
                     22.verticalSpace,
-                    ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10.r),
-                        ),
-                        elevation: 4,
-                      ),
+                    ElevatedButton.icon(
+                      iconAlignment: .end,
                       onPressed: () {},
-                      child: Padding(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: 4.w,
-                          vertical: 8.h,
-                        ),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            const Text(
-                              "Send Message",
-                            ),
-                            4.horizontalSpace,
-                            Transform.rotate(
-                              angle: -50 * pi / 180,
-                              child: Padding(
-                                padding: EdgeInsets.only(bottom: 8.h),
-                                child: Icon(
-                                  Icons.send_rounded,
-                                  size: 15.r,
-                                ),
-                              ),
-                            ),
-                          ],
+                      icon: Icon(
+                        Icons.send_rounded,
+                        size: 18.r,
+                        color: theme.primaryColor,
+                      ),
+                      label: Text(
+                        "Send Message",
+                        style: textTheme.titleSmall?.copyWith(
+                          color: theme.primaryColor,
                         ),
                       ),
                     ),
                   ],
                 ),
-              )
+              ),
             ],
           ),
         ),

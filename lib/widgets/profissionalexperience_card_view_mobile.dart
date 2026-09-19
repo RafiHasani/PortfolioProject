@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:portfolioproject/controllers/home_screen_controller.dart';
 
 class ProfessionalExperienceCardMobile extends StatelessWidget {
-  final HomeController homeController;
-  final Function() viewMore;
   const ProfessionalExperienceCardMobile({
     super.key,
-    required this.homeController,
     required this.viewMore,
     required this.icon,
     required this.subTitle,
@@ -17,74 +13,57 @@ class ProfessionalExperienceCardMobile extends StatelessWidget {
   final String icon;
   final String subTitle;
   final String title;
+  final VoidCallback viewMore;
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final textTheme = theme.textTheme;
+    final colorScheme = theme.colorScheme;
+
     return Material(
       elevation: 1,
+      color: colorScheme.surfaceContainer,
       borderRadius: BorderRadius.circular(8.r),
       clipBehavior: Clip.antiAlias,
       child: Container(
-        clipBehavior: Clip.antiAlias,
         height: 0.26.sh,
         width: 0.8.sw,
         padding: EdgeInsets.all(8.r),
         decoration: BoxDecoration(
-          border: Border.all(
-            width: 0.5,
-            color: Colors.black12,
-          ),
+          borderRadius: BorderRadius.circular(8.r),
+          border: Border.all(width: 0.5, color: colorScheme.outlineVariant),
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset(
-              icon,
-              color: Colors.orange.shade400,
-            ),
+            Image.asset(icon, color: colorScheme.primary),
+
             8.verticalSpace,
-            Text(
-              title,
-              style: TextStyle(
-                fontSize: 10.sp,
-                fontWeight: FontWeight.bold,
-                color: Colors.black,
-              ),
-            ),
+
+            Text(title, style: textTheme.titleSmall),
+
             8.verticalSpace,
-            Text(
-              subTitle,
-              style: TextStyle(
-                fontSize: 10.sp,
-                fontWeight: FontWeight.w600,
-                color: Colors.black45,
-              ),
-            ),
+
+            Text(subTitle, style: textTheme.bodySmall),
+
             12.verticalSpace,
+
             TextButton(
-                onPressed: () {
-                  viewMore();
-                },
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Text(
-                      "View More",
-                      style: TextStyle(
-                        fontSize: 10.sp,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black45,
-                      ),
-                    ),
-                    2.horizontalSpace,
-                    Icon(
-                      Icons.arrow_forward_rounded,
-                      size: 10.r,
-                    )
-                  ],
-                ))
+              onPressed: viewMore,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text("View More", style: textTheme.labelLarge),
+
+                  2.horizontalSpace,
+
+                  Icon(Icons.arrow_forward_rounded, size: 10.r),
+                ],
+              ),
+            ),
           ],
         ),
       ),

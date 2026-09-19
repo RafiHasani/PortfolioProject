@@ -4,7 +4,7 @@ publish_to: "none"
 version: 0.1.0
 
 environment:
-  sdk: ">=3.0.3 <4.0.0"
+  sdk: ">=3.10.0 <4.0.0"
 
 dependencies:
   countup: ^0.1.4
@@ -13,7 +13,7 @@ dependencies:
   flutter_screenutil: ^5.9.3
   get: ^4.7.2
   responsive_builder: ^0.7.1
-  smooth_page_indicator: ^1.2.1
+  smooth_page_indicator: ^3.0.0
   url_launcher: ^6.1.12
 
 dev_dependencies:
@@ -26,4 +26,3 @@ flutter:
   assets:
     - assets/images/
     - assets/files/
- 

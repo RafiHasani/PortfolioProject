@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -7,11 +6,11 @@ class HomeController extends GetxController {
 
   bool isLoading = false;
 
-  setLoading(bool isLoading) => isLoading = isLoading;
+  bool setLoading(bool isLoading) => isLoading = isLoading;
 
   int pageIndex = 0;
 
-  setPageIndex(int index) {
+  void setPageIndex(int index) {
     pageIndex = index;
     update();
   }

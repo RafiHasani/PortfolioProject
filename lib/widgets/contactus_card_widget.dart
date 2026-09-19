@@ -7,6 +7,7 @@ class ContactTalkCardWidget extends StatelessWidget {
   final String subtitle;
   final bool showAction;
   final String? actionTitle;
+
   const ContactTalkCardWidget({
     super.key,
     required this.icon,
@@ -18,41 +19,29 @@ class ContactTalkCardWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final textTheme = theme.textTheme;
+    final colorScheme = theme.colorScheme;
+
     return Material(
       elevation: 1,
+      color: colorScheme.surfaceContainer,
       borderRadius: BorderRadius.circular(8.r),
       clipBehavior: Clip.antiAlias,
       child: Container(
-        clipBehavior: Clip.antiAlias,
         height: 0.18.sh,
         width: 0.18.sw,
         padding: EdgeInsets.all(8.r),
         decoration: BoxDecoration(
-          border: Border.all(
-            width: 0.5,
-            color: Colors.black12,
-          ),
+          border: Border.all(width: 0.5, color: colorScheme.outlineVariant),
+          borderRadius: BorderRadius.circular(8.r),
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             icon,
-            Text(
-              title,
-              style: TextStyle(
-                fontSize: 6.sp,
-                fontWeight: FontWeight.w500,
-                color: Colors.black,
-              ),
-            ),
-            Text(
-              subtitle,
-              style: TextStyle(
-                fontSize: 4.sp,
-                fontWeight: FontWeight.w400,
-                color: Colors.black45,
-              ),
-            ),
+            Text(title, style: textTheme.titleMedium),
+            Text(subtitle, style: textTheme.bodySmall),
             8.verticalSpace,
             if (showAction)
               Row(
@@ -60,19 +49,9 @@ class ContactTalkCardWidget extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Text(
-                    actionTitle ?? '',
-                    style: TextStyle(
-                      fontSize: 6.sp,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black45,
-                    ),
-                  ),
+                  Text(actionTitle ?? '', style: textTheme.labelLarge),
                   2.horizontalSpace,
-                  Icon(
-                    Icons.arrow_forward_rounded,
-                    size: 10.r,
-                  )
+                  Icon(Icons.arrow_forward_rounded, size: 10.r),
                 ],
               ),
           ],
