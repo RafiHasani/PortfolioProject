@@ -10,6 +10,7 @@ dependencies:
   countup: ^0.1.4
   flutter:
     sdk: flutter
+  flutter_native_splash: ^2.4.8
   flutter_screenutil: ^5.9.3
   get: ^4.7.2
   responsive_builder: ^0.7.1
@@ -26,3 +27,17 @@ flutter:
   assets:
     - assets/images/
     - assets/files/
+
+flutter_native_splash:
+  color: "#FFFFFF"
+  image: assets/splash.png
+  image_web: assets/splash.png
+  web_image_mode: contain
+
+  android_12:
+    color: "#FFFFFF"
+    image: assets/splash.png
+
+  web: true
+  ios: true
+  android: true
