@@ -14,7 +14,7 @@ class PortfolioTheme {
   static const Color darkGray = Color(0xFF18181B);
 
   static const Color containerSurface = Color.fromARGB(255, 47, 47, 56);
-  static const Color containerSurfaceLight = Color.fromARGB(255, 47, 47, 56);
+  static const Color containerSurfaceLight = Color.fromARGB(255, 167, 167, 194);
 
   // --- LIGHT THEME ---
   static ThemeData get lightTheme {
